@@ -10,29 +10,25 @@ var numericCheck = ""
 var specialCheck = ""
 var passCharacters = []
 
+function passwordInput(){
+  characterLength = window.prompt("How many characters would you like your password to have? (Must be between 8-128 characters.");
 
-function passwordGen
-var 
-
-
-function passwordInput() {
-characterLength = window.prompt("How many characters would you like your password to have? (Must be between 8-128 characters.");
 
   if (characterLength<8) {
-    window.alert ("Password must be 8 characters or longer.");
+    window.alert("Password must be 8 characters or longer.")
     passwordInput();
   } else if (characterLength>128){
-    window.alert ("Password must be 128 characters or shorter.");
+    window.alert ("Password must be 128 characters or shorter.")
     passwordInput();
-  } else if (characterLength = null) {
-    window.alert ("Missing input. Please try again.");
+  } else if (characterLength = null){
+    window.alert ("Missing input. Please try again.")
     passwordInput();
   } else {
-    window.alert ("Continue to the next screen.");
-    passwordInput();
+    alert("Continue to the next screen.")
+    lowercaseConfirm();
   }
   return characterLength;
-}  
+}
 
 function lowercaseConfirm(){
   lowercaseCheck = window.prompt("Would you like lowercase characters in your password?");
