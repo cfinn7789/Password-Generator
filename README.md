@@ -16,6 +16,6 @@ This project is to be used to generate unique passwords to protect your online d
 
 # Links
 
-[My Github](https://github.com/cfinn7789/Password-GeneratorLinks to an external site.)
+[My Github](https://github.com/cfinn7789/Password-Generator)
 [The website](https://cfinn7789.github.io/Password-Generator/)
 
