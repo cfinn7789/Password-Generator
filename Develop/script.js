@@ -1,14 +1,16 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var lowercase = "abcdefghijklmnopqrstuvwxyz"
-var numeric = "0123456789"
-var special = "~!@#$%^&*()_+|\'}{“:?><[];,./-="
+var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=']
 var lowercaseCheck = ""
+var uppercaseCheck = ""
 var numericCheck = ""
 var specialCheck = ""
-var passCharacters = []
+var passwordContent = [passwordInput, lowercaseConfirm, uppercaseConfirm, numericConfirm, specialConfirm]
+
 
 function passwordInput(){
   characterLength = window.prompt("How many characters would you like your password to have? (Must be between 8-128 characters.");
@@ -20,7 +22,7 @@ function passwordInput(){
   } else if (characterLength>128){
     window.alert ("Password must be 128 characters or shorter.")
     passwordInput();
-  } else if (characterLength = null){
+  } else if (isNaN(characterLength)){
     window.alert ("Missing input. Please try again.")
     passwordInput();
   } else {
@@ -118,42 +120,42 @@ function generatePassword() {
   console.log(numericCheck);
   specialConfirm();
   console.log(specialCheck);
+  var finalResult = "";
+  var passCharacters = [];
 
 
-  if (lowercase && uppercase && numeric && special){
-    characterInput = lowercase + uppercase + numeric + special;
-  } else if (lowercase && uppercase && numeric) {
-    characterInput = lowercase + uppercase + numeric;
-  } else if (lowercase && uppercase){
-    characterInput = lowercase + uppercase;
-  } else if (lowercase && numeric){
-    characterInput = lowercase + numeric;
-  } else if (lowercase && special){
-    characterInput = lowercase + special;
-  } else if (uppercase && numeric){
-    characterInput = uppercase + numeric;
-  } else if (special + numeric){
-    characterInput = special + numeric;
-  } else if (lowercase && uppercase && special){
-    characterInput = lowercase + uppercase + special;
-  } else if (uppercase && special && numeric){
-    characterInput = uppercase + special + numeric;
+  if (uppercaseCheck) {
+    for (var i of uppercase)
+      passCharacters.push(i);
   }
+  if (lowercaseCheck){
+    for (var i of lowercase)
+      passCharacters.push(i);
+  }
+  if (numericCheck){
+    for (var i of numeric)
+      passCharacters.push(i);
+  }
+  if (specialCheck){
+    for (var i of special)
+      passCharacters.push(i);
+  }
+  console.log(passCharacters);
 
-  var password = "";
+
   for(var i = 0; i < characterLength; i++){
-    password += characterInput.charAt(Math.floor(Math.random() * characterInput.length));
+    finalResult += passCharacters[Math.floor(Math.random() * passCharacters.length)];
   }
-  return password;
+  console.log (finalResult)
+  return finalResult;
 }
 
 
 // Write password to the #password input
 function writePassword() {
-  var password = "";
-  password = generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  console.log(password)
   passwordText.value = password;
 
 }
