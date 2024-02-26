@@ -27,7 +27,6 @@ function passwordInput(){
     passwordInput();
   } else {
     alert("Continue to the next screen.")
-    lowercaseConfirm();
   }
   return characterLength;
 }
@@ -44,7 +43,6 @@ function lowercaseConfirm(){
     return lowercaseCheck;
   } else if (lowercaseCheck === "no" || lowercaseCheck === "n"){
     lowercaseCheck = false;
-    return lowercaseCheck;
   } else {
     alert("Please answer Yes or No")
     lowercaseConfirm();
